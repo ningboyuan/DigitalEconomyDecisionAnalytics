@@ -9,7 +9,7 @@ Created time:
 numeric operation
 """
 """
-try basic operations:
+Basic operations:
 +, -, *, /, %, **, //
 """
 
@@ -24,9 +24,23 @@ e = c + d  # '1020'
 f = int(c) + int(d)  # 30
 
 """
-try comparision operations:
-==, <, <=, >, >=, !=
+Python provides a straight way for numerical operations
+Try comparison operationsL
+==,<,<=,>,>=,!=
 """
+
+a = 5
+print(a == 5)  # True
+
+print(a <= 5)  # True
+print(a < 5)  # False
+
+a = 'A'
+b = 'B'
+print(a == b)  # False
+print(a != b)  # True
+
+
 
 """
 string
@@ -85,8 +99,7 @@ personal_tuple[0] = 'Allan Lee'  # tuple' object does not support item assignmen
 countries_1 = {'China', 'Japan', 'Japan', 'Korea', 'Russia', 'Singapore', 'Turkey'}
 countries_2 = {'France', 'Germany', 'Italy', 'Russia', 'Spain', 'Turkey', 'UK', 'USA'}
 
-print(f'Totally {len(countries_1)} countries: {countries_1}')
-print(countries_1)  # sets will drop duplicated elements automatically
+print(f'Totally {len(countries_1)} countries: {countries_1}')  # sets will drop duplicated elements automatically
 
 # Operation of set
 count_inter = countries_1.intersection(countries_2)  # {'Russia', 'Turkey'}
@@ -134,6 +147,11 @@ numbers.sort()  # [11, 22, 32, 43, 95]
 numbers.sort(reverse=True)  # [95, 43, 32, 22, 11]
 sorted_number = sorted(numbers)  # sorted function can return a new list instead of altering the original list
 
+print(f'Reverse Numbers: {numbers.reverse()}')  # [22, 95, 32, 11, 43]
+print(f'Sort Numbers: {numbers.sort()}')  # [11, 22, 32, 43, 95]
+print(f'Reversed Sorting{numbers.sort(reverse=True)}')  # [95, 43, 32, 22, 11]
+
+
 # basic search in list
 min_num = min(numbers)  # 11
 max_num = max(numbers)  # 95
@@ -159,23 +177,6 @@ nations = [language for language in natr_language_new if language.endswith('ese'
 num_seq = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 num_seq_dd = [format(num, '02d') for num in num_seq]
 
-
-"""
-Python provides a straight way for numerical operations
-Try comparison operationsL
-==,<,<=,>,>=,!=
-"""
-
-a = 5
-print(a == 5)  # True
-
-print(a <= 5)  # True
-print(a < 5)  # False
-
-a = 'A'
-b = 'B'
-print(a == b)  # False
-print(a != b)  # True
 
 """
 Lists are versatile Python data structure to group values.
@@ -246,6 +247,7 @@ for gdppc, country in gdppc_sorted:
 
 # Subset of a dictionary (Slicing dictionary by condition)
 gdp_subset = {key: value for key, value in gdp_percap.items() if value >= 30000}
+
 
 """
 For Loop can iterate over all iterables.
@@ -345,36 +347,6 @@ x = [1, 2, 3, 4, 5]
 square_iterable(x)  # [1, 4, 9, 16, 25]
 square_iterabel_short(x)  # [1, 4, 9, 16, 25]
 
-"""
-Dictionary
-"""
-"""
-Like a real dictionary, dict type is form by 2 parts, a unique key and values for a key.
-"""
-
-# initial a dict
-profile = {'name': 'Anna', 'birth': '10-05-2000', 'gender': 'female', 'height': 1.70}
-
-# find the value by using the key
-print(profile['name'])  # 'Anna'
-
-# get all the keys and put into a list
-keys = list(profile.keys())  # ['name', 'birth', 'gender', 'height']
-# get all values and put into a list
-values = list(profile.values())  # ['Anna', '10-05-2000', 'female', 1.7]
-# get all key-value pairs and put into a list
-key_value = list(profile.items())
-
-# add a key with value
-profile['weight'] = 55
-# change value of a key
-profile['name'] = 'Yoki'
-# alter multiple keys and values at a time
-profile.update({'birth': '01-10-2001', 'tel': '123-312'})
-
-# loop with key and vlaue
-for key, value in profile.items():
-    print(f'{key}: {value}')
 
 """
 Wiggling Elephant Trunk
@@ -420,7 +392,7 @@ Pseudo-mathematics and financial charlatanism: The effects of backtest overfitti
 
 import matplotlib
 
-matplotlib.use('TKAgg')
+# matplotlib.use('TKAgg')
 from matplotlib import animation
 from numpy import append, cos, linspace, pi, sin, zeros
 import matplotlib.pyplot as plt
