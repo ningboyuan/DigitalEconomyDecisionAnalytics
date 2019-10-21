@@ -390,8 +390,7 @@ Pseudo-mathematics and financial charlatanism: The effects of backtest overfitti
 
 """
 
-import matplotlib
-
+# import matplotlib
 # matplotlib.use('TKAgg')
 from matplotlib import animation
 from numpy import append, cos, linspace, pi, sin, zeros
@@ -463,7 +462,7 @@ ani = animation.FuncAnimation(fig=fig,
                               func=move_trunk,
                               frames=1000,
                               init_func=init_plot,
-                              interval=500,
+                              interval=100,
                               blit=False,
                               repeat=True)
 plt.show()
