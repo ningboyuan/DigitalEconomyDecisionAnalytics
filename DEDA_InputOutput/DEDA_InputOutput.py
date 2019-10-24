@@ -14,7 +14,7 @@ Import packages
 import os
 
 path_direct = os.getcwd()
-os.chdir(path_direct + '/DEDA_Class_2017_InputOutput')
+os.chdir(path_direct + '/DEDA_InputOutput')
 # os module allows you to connect with your operation system
 # You can check, create, delete, rename your files and directories
 # Hint: path.exists(), listdir(), mkdir(), makedirs(), remove(), removedirs(), rename(), walk()

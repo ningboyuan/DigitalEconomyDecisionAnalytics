@@ -38,7 +38,7 @@ for index, item in enumerate(content.entries):
     print("{0}.{1}\n".format(index, item["description"]))
 
 """
-NasdaqNewsScraping.py
+NASDAQ_headlines_1stpage.py
 """
 
 import requests

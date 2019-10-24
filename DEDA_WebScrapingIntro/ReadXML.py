@@ -1,10 +1,6 @@
 """
-Description:
- - A simple demo to get XML data.
-
 Author:
  - Cathy Chen
-Last modified date: 5-11-2017
 """
 
 import requests

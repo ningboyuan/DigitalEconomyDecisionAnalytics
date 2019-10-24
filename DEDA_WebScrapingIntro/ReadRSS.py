@@ -2,7 +2,7 @@
 Description:
  - A simple demo to get RSS feed from Financial Times Journal.
 
-Usage: Executing this whole file in your IDE or from Terminal or executing line by line in iPython.
+Usage: Executing this whole file in your IDE or from Terminal or executing line by line in IPython.
 
 Author:
  - Junjie Hu, hujunjie@hu-berlin.de

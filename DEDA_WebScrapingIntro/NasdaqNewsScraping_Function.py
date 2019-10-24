@@ -24,12 +24,7 @@ import pickle
 
 def nasdaq_news_scraping(page=1, refresh=False):
     # Argument page equals 1 by default
-    if page == 1:
-        # Visit the home page if page equals 1
-        nasdaq_url = 'http://www.nasdaq.com/news/market-headlines.aspx'
-    else:
-        # Change url by different argument
-        nasdaq_url = 'http://www.nasdaq.com/news/market-headlines.aspx?page=' + str(page)
+    nasdaq_url = f'https://www.nasdaq.com/news-and-insights/topic/markets/stocks/page/{page}'
 
     if (not os.path.exists(direct + '/temp/' + str(page) + '.pkl')) or (refresh is True):
         # connect to the website if the webpage source code file is not exist of we need to refresh it
@@ -43,55 +38,61 @@ def nasdaq_news_scraping(page=1, refresh=False):
             url_request = pickle.load(url_file)
     url_content = url_request.content
     parsed_content = soup(url_content)
-    containers = parsed_content.find_all('p')
-
-    title_list_page = []
-    time_list_page = []
-    link_list_page = []
-    tag_list_page = []
+    containers = parsed_content.find_all('div', {'data-type': 'article'})
+    page_info = list()
 
     for container in containers:
-        container_a = container.find_all('a', {"id": "two_column_main_content_la1_rptArticles_hlArticleLink_0"})
-        for item in container_a:
-            news_link = item.get('href').strip()
-            news_title = item.text.strip()
-            title_list_page.append(news_title)
-            print(news_title)
-            link_list_page.append(news_link)
-            print(news_link)
-        container_span = container.find_all('span', {'class': 'small'})
-        for item in container_span:
-            item_split = item.text.split(' - ', 1)
-            time = datetime.datetime.strptime(item_split[0], '%m/%d/%Y %I:%M:%S %p')
-            time_list_page.append(time)
-            print(time)
+        """
+        Scrape 1 item each time, each item contains title, time, author_name, tag, author_url 
+        """
+        unit_info = dict()
+
+        container_title = container.find_all('a', {"class": "content-feed__card-title-link"})
+        if container_title == []:
+            continue
+
+        news_link = container_title[0].get('href').strip()
+        news_link = f"https://www.nasdaq.com{news_link}"
+        news_title = container_title[0].text.strip()
+        unit_info['news_title'] = news_title
+        unit_info['news_link'] = news_link
+
+        try:
+            news_date = datetime.datetime.strptime(news_link[-10:], '%Y-%m-%d')
+            news_date = news_date.date()
+
+        except:
+            container_time = container.find_all('div', {'class': 'content-feed__card-timestamp'})
             try:
-                tag = item_split[1].split('  in ')[1].strip()
-            except Exception:
-                tag = []
-            tag_list_page.append(tag)
-            print(tag)
-    return title_list_page, time_list_page, link_list_page, tag_list_page
+                news_date = datetime.datetime.strptime(container_time[0].text.strip(), '%b %d,%Y')
+                news_date = news_date.date()
+
+            except:
+                t_day = datetime.date.today()
+                date_series = container_time[0].text.strip().split(' ')
+                if (date_series[1].startswith('hour')) or (date_series[1].startswith('minute')):
+                    news_date = t_day
+
+                elif date_series[1].startswith('day'):
+                    news_date = t_day - datetime.timedelta(days=int(date_series[0]))
+                else:
+                    news_date = t_day
+
+        news_date = datetime.datetime(news_date.year, news_date.month, news_date.day)
+        unit_info['news_time'] = news_date
+        page_info.append(unit_info)
+
+    return page_info
 
 
-direct = os.getcwd()
-# direct = os.getcwd() + '/DEDA_Class_2017_WebScrapingIntro'
+direct = os.getcwd() + '/DEDA_WebScrapingIntro/'
+head_lines_info = list()
 
-title_list = []
-time_list = []
-link_list = []
-tag_list = []
-
-for page_num in range(1, 10):
-    print("\nThis is Page: ", page_num)
+for page_num in range(1, 30):
+    print("This is Page: ", page_num)
     # Using the function defined previously with certain arguments as input
-    nasdaq_news_page = nasdaq_news_scraping(page=page_num, refresh=False)
-    title_list.extend(nasdaq_news_page[0])
-    time_list.extend(nasdaq_news_page[1])
-    link_list.extend(nasdaq_news_page[2])
-    tag_list.extend(nasdaq_news_page[3])
+    page_info = nasdaq_news_scraping(page=page_num, refresh=True)
+    head_lines_info.extend(page_info)
 
-nasdaq_info = zip(title_list, time_list, link_list, tag_list)
-nasdaq_info_df = pd.DataFrame(list(nasdaq_info), columns=['title', 'time', 'link', 'tag'])
-print(os.getcwd())
-nasdaq_info_df.to_csv(direct + '/Nasdaq_News_MultiPages.csv')
+headlines_info_df = pd.DataFrame(head_lines_info, columns=['news_title', 'news_link', 'news_time'])
+headlines_info_df.to_csv(direct + '/Nasdaq_News_MultiPages.csv')
