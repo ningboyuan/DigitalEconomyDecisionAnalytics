@@ -7,7 +7,7 @@ Usage: This file is not for execution, only for external using.
 
 Author:
  - Junjie Hu, hujunjie@hu-berlin.de
- - Cathy Chen
+
 Last modified date: 19-11-2017
 """
 
@@ -40,10 +40,10 @@ class ReadRSS(object):
         print('\n'.join(titles))
         return titles
 
-    def get_description(self):
+    def get_specificitem(self, item_name):
         scripts = []
         for item in self.response["entries"]:
-            scripts.append(item["description"])
-        print("\nDESCRIPTIONS:\n")
+            scripts.append(item[f"{item_name}"])
+        print(f"\n{item_name}:\n")
         print('\n'.join(scripts))
         return scripts

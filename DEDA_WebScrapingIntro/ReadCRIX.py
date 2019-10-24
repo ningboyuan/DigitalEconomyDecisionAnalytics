@@ -8,6 +8,10 @@ Author: Junjie Hu, hujunjie@hu-berlin.de
 Last modified date: 19-11-2017
 """
 
+"""
+Depreciated, CRIX no longer provided in this way
+"""
+
 import requests
 import json
 import pandas as pd

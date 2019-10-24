@@ -14,18 +14,17 @@ Last modified date: 19-11-2017
 import os
 import sys
 
-sys.path.append(os.getcwd() + '/DEDA_Class_2017_WebScrapingIntro/')
+# sys.path.append(os.getcwd() + '/DEDA_WebScrapingIntro/')
 # add the module path to Python searching path
-import ReadRSSClass as rrc
+import DEDA_WebScrapingIntro.ReadRSSClass as rrc
 
 # ReadRSSClass is the file name of the module code
-
-
-r = rrc.ReadRSS("http://www.wsj.com/xml/rss/3_7085.xml")
-r2 = rrc.ReadRSS("http://www.wsj.com/xml/rss/3_7085.xml")
+r = rrc.ReadRSS("https://feeds.a.dj.com/rss/RSSMarketsMain.xml")
+r2 = rrc.ReadRSS("https://feeds.a.dj.com/rss/RSSMarketsMain.xml")
 
 # Here we can print out the object's url in certain format
 print(r)
+print(f'The type of r is: {type(r)}')
 
 # Here we use == to validate if two responses of two url are equal
 if r == r2:
@@ -33,6 +32,6 @@ if r == r2:
 else:
     print("Two urls are not the same")
 # Print out the titles
-r.get_titles()
+titles = r.get_titles()
 # Print out the descriptions
-r.get_description()
+article_types = r.get_specificitem('wsj_articletype')
