@@ -11,11 +11,6 @@ Author:
 Last modified date: 19-11-2017
 """
 
-import os
-import sys
-
-# sys.path.append(os.getcwd() + '/DEDA_WebScrapingIntro/')
-# add the module path to Python searching path
 import DEDA_WebScrapingIntro.ReadRSSClass as rrc
 
 # ReadRSSClass is the file name of the module code
@@ -33,5 +28,5 @@ else:
     print("Two urls are not the same")
 # Print out the titles
 titles = r.get_titles()
-# Print out the descriptions
+# Print out the article type
 article_types = r.get_specificitem('wsj_articletype')

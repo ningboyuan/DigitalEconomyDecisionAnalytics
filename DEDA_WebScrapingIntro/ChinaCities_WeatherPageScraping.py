@@ -97,7 +97,7 @@ provinces = dict()  # initialize a dictionary to hold provinces information
 # provinces_info = city_collection()  # Use this function to retrieve links to all the cities
 
 # This is called context management, with open can close the document automatically when the
-with open('DEDA_Class_2017_WebScrapingIntro/output_cities_link.pkl', 'rb') as cities_file:  # write, change 'rb' -> 'wb'
+with open('DEDA_WebScrapingIntro/output_cities_link.pkl', 'rb') as cities_file:  # write, change 'rb' -> 'wb'
     provinces_info = pickle.load(cities_file)
     print(provinces_info)
     # pickle.dump(provinces_info, cities_file)  # write
