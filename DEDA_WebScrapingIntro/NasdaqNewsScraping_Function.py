@@ -86,6 +86,9 @@ def nasdaq_news_scraping(page=1, refresh=False):
 
 
 direct = os.getcwd() + '/DEDA_WebScrapingIntro/'
+# Or
+# direct = os.getcwd()
+
 head_lines_info = list()
 
 for page_num in range(1, 30):

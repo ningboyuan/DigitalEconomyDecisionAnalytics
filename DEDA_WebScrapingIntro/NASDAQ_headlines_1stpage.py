@@ -23,7 +23,9 @@ import pickle
 nasdaq_url = 'https://www.nasdaq.com/news-and-insights/topic/markets/stocks/page/1'
 
 direct = os.getcwd() + '/DEDA_WebScrapingIntro/'
-# direct = os.getcwd() + '/DEDA_Class_2017_WebScrapingIntro'
+# Or:
+# direct = os.getcwd()
+
 refresh = True
 
 if (not os.path.exists(direct + '/temp/' + '0.pkl')) or (refresh is True):
