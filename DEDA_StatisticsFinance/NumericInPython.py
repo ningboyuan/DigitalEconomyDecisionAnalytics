@@ -60,6 +60,7 @@ print(idn_matrix)
 np.allclose(dot_result, np.eye(20))  # True
 
 from PIL import Image
+# pip install pillow for package installation
 from numpy.fft import fft, ifft
 
 # Open then image by using Python Imaging Library(PIL)
