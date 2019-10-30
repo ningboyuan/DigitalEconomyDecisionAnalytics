@@ -1,7 +1,19 @@
+"""
+Description:
+ - Plots 3 normal pdfs + histograms
+ -
+
+Usage: just roll
+
+Author:
+ - Junjie Hu, hujunjie@hu-berlin.de
+ - students from SDA Class St Gallen
+Last modified date: 20191030
+"""
+
 import scipy as sc
 import matplotlib.pyplot as plt
 from scipy.stats import norm
-
 
 def plot_normal(mu, sigma, size):
     # Create a function to receive normal distribution parameters
