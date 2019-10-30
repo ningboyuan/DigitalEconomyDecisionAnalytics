@@ -3,7 +3,7 @@
 """
 Created on Wed Oct 30 10:44:44 2019
 
-@author: haerdle
+@author: haerdle + students of the SDA class St Gallen 20191030
 """
 
 # Using the Box-Mueller Method to generate 2-dim normally distributed variables
