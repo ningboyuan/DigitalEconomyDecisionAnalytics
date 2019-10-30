@@ -1,7 +1,19 @@
+"""
+Description:
+ - Plots 3 normal pdfs + histograms
+ -
+
+Usage: just roll
+
+Author:
+ - Junjie Hu, hujunjie@hu-berlin.de
+ - students from SDA Class St Gallen
+Last modified date: 20191030
+"""
+
 import scipy as sc
 import matplotlib.pyplot as plt
-import matplotlib.mlab as mlab
-
+from scipy.stats import norm
 
 def plot_normal(mu, sigma, size):
     # Create a function to receive normal distribution parameters
@@ -11,7 +23,7 @@ def plot_normal(mu, sigma, size):
     # but also return the info of the drawing
     n, bins, patchs = plt.hist(normal_data, bins=100, normed=1)
     # Use bins returned from hist() to draw a wrap line
-    y = mlab.normpdf(bins, mu, sigma)
+    y = norm.pdf(bins, mu, sigma)
     plt.plot(bins, y, '-')
     plt.draw()
     return plt
