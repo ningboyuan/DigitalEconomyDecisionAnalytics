@@ -3,7 +3,7 @@
 """
 Created on Wed Oct 30 10:44:44 2019
 
-@author: haerdle + students of the SDA class St Gallen 20191030
+@author: haerdle and the students of the St Gallen SDA class 2019
 """
 
 # Using the Box-Mueller Method to generate 2-dim normally distributed variables
@@ -26,7 +26,7 @@ y = a * np.sin(phi)
 
 plt.figure(figsize=(7, 7))
 plt.plot(x, y, '.r', markersize=msize)
-plot.savefig('2dimnormal.png', dpi = 300, transparent = True)
+plt.savefig('2dimnormal.png', dpi = 300, transparent = True)
 
 # for covariance matrix Sigma = A: Y = X/sqrt(Sigma) ~ N(0,I) => Y*sqrt(Sigma)
 
@@ -45,5 +45,6 @@ c = [x, y]
 tfxy = np.dot(A12, c)
 
 # print(N)
-plt.figure(2, figsize=(6, 4))
-plt.plot(tfxy[0], tfxy[1], 'ro', markersize=msize)
+plt.figure(2, figsize=(8, 6))
+plt.plot(tfxy[0], tfxy[1], '.r', markersize=msize)
+plt.savefig('2dimnormalwithcov.png', dpi = 300, transparent = True)
