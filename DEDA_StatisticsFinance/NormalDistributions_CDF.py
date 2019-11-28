@@ -39,5 +39,5 @@ plot = [plot_normal(mu, sigma, size) for mu, sigma, size in zip(mus, sigmas, siz
 plot.ylabel('Frequency')
 plot.title('Normal Distributions Histogram')
 plot.legend()
-plot.savefig('histogram_normal.png', dpi=300)
+plot.savefig('DEDA_StatisticsFinance/histogram_normal.png', dpi=300)
 plot.show()
