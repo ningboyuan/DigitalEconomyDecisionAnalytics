@@ -7,7 +7,8 @@ Usage:
 
 Author:
  - Junjie Hu, hujunjie@hu-berlin.de
-Last modified date: 09-12-2017
+ - WKH, changed the code for plotting to allow for transparent=True
+Last modified date: 20191129
 """
 
 import numpy as np
@@ -30,7 +31,7 @@ ax.plot(np.arange(1, 21), A, 'o')  # Plot the dots, using circle
 ax.set_title('Random Number Plotting')  # Set figure title
 plt.show()
 # Save figure to a high quality
-fig.savefig('random_scatter.png', dpi=300)
+fig.savefig('random_scatter.png', dpi=300, transparent=True)
 fig.clear()  # clear the figure
 
 # Another scatter plot
