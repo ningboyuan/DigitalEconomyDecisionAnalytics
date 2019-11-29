@@ -7,7 +7,10 @@ Created time: 28.11.2019
 import os
 import pandas as pd
 from sudachipy import tokenizer, dictionary
-# pip3 install SudachiPy package not found
+# pip3 install SudachiPy if package not found
+# CorePackage:
+# pip install https://object-storage.tyo2.conoha.io/v1/nc_2520839e1f9641b08211a5c85243124a/sudachi/SudachiDict_core-20191030.tar.gz
+# More information: https://github.com/WorksApplications/SudachiPy
 from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
 
