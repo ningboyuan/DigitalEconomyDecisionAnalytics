@@ -43,5 +43,9 @@ main.pdf
 *.fmt
 *.watcher_pid
 .tm_properties
-.ipynb_checkpoints
+.ipynb_checkpoints/
 */.ipynb_checkpoints/*
+__pycache__/
+.vscode/
+.idea/
+TODO/
