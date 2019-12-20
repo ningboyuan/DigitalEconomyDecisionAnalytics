@@ -20,7 +20,7 @@ import pickle  # a package to save your file temporarily
 import pandas as pd  # process structured data
 import os
 
-direct = os.getcwd()
+direct = os.getcwd() + '/DEDA_WebScrapingIntro'
 save_path = direct +'output/'  # the path you save your files
 base_link = 'http://www.tianqihoubao.com/lishi/'  # This link can represent the domain of a series of websites
 

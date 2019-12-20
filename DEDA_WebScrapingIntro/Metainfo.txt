@@ -1,4 +1,4 @@
-Name of Quantlet : DEDA_2017_WebScrapingIntro
+Name of Quantlet : DEDA_WebScrapingIntro
 Published in : Digital Economy and Decision Analytics
 Description :
 - Demonstrate getting data from webpage API and scraping news information from nasdaq.com
