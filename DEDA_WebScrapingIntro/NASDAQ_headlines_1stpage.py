@@ -28,15 +28,15 @@ direct = os.getcwd() + '/DEDA_WebScrapingIntro/'
 
 refresh = True
 
-if (not os.path.exists(direct + '/temp/' + '0.pkl')) or (refresh is True):
-    # connect to the website if the webpage source code file is not exist of we need to refresh it
+if (not os.path.exists(direct + 'temp/' + '0.pkl')) or (refresh is True):
+    # connect to the website if the webpage source code file is not exist or we need to refresh it
     url_request = requests.get(nasdaq_url)
     # save the request object after scraping
-    with open(direct + '/temp/' + '0.pkl', 'wb') as url_file:
+    with open(direct + 'temp/' + '0.pkl', 'wb') as url_file:
         pickle.dump(url_request, url_file)
 else:
     # else, we open the source code file from local disk to save time
-    with open(direct + '/temp/' + '0.pkl', 'rb') as url_file:
+    with open(direct + 'temp/' + '0.pkl', 'rb') as url_file:
         url_request = pickle.load(url_file)
 
 url_request = requests.get(nasdaq_url)
