@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from scipy.stats import norm
 from sklearn.neighbors import KernelDensity
 
-# Code reference: http://scikit-learn.org/stable/auto_examples/neighbors/plot_kde_1d.html
 
 N = 200
 np.random.seed(1)
@@ -14,10 +13,11 @@ norm_data = np.concatenate((norm_data_1, norm_data_2))
 
 # Create x axis range
 X_plot = np.linspace(-5, 10, 1000)
+
 # Create linear combination of 2 normal distributed random variable
 norm_linear = (0.3 * norm(0, 1).pdf(X_plot) + 0.7 * norm(5, 1).pdf(X_plot))
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(10,7))
 # Plot the real distribution
 ax.fill(X_plot, norm_linear, fc='black', alpha=0.2, label='Linear combination')
 # Use 3 different kernel to estimate
@@ -29,12 +29,19 @@ for kernel in ['gaussian', 'tophat', 'epanechnikov']:
     ax.plot(X_plot, np.exp(log_dens), '-', label="kernel = '{0}'".format(kernel))
 
 # Add text on the plot, position argument can be arbitrary
-ax.text(6, 0.38, "N={0} points".format(N))
-ax.legend(loc='upper left')
+ax.set_xlabel("N={0} points".format(N))
+
+ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.075),
+          fancybox=True, shadow=False, ncol=5,frameon=False)
+
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
 # Plot the random points, squeeze them into narrow space
 ax.plot(norm_data, -0.005 - 0.01 * np.random.random(norm_data.shape[0]), '+k')
 # Set x-axis y-axis limit to adjust the figure
 ax.set_xlim(-4, 9)
 ax.set_ylim(-0.03, 0.4)
-fig.savefig('kernel_estimation.png', dpi=300)
+fig.savefig('kernel_estimation.png', dpi=500,transparent=True
+	)
 plt.show()
+
