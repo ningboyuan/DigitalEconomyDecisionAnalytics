@@ -1,47 +1,54 @@
 import numpy as np
+from scipy import stats
 import matplotlib.pyplot as plt
-from scipy.stats import norm
 from sklearn.neighbors import KernelDensity
+from scipy.stats import norm
 
+np.random.seed(12345)
 
-N = 200
-np.random.seed(1)
-# Create 2 normal distributed data set
-norm_data_1 = np.random.normal(0, 1, int(0.3 * N))
-norm_data_2 = np.random.normal(5, 1, int(0.7 * N))
-norm_data = np.concatenate((norm_data_1, norm_data_2))
+# specify mu sigma and weight for both distributions
+dist1_loc, dist1_scale, weight1 = -1 , .5, .25
+dist2_loc, dist2_scale, weight2 = 1 , .5, .75
 
-# Create x axis range
-X_plot = np.linspace(-5, 10, 1000)
+N = 1000
+# Sample from a mixture of distribution
+
+obs_dist1 = np.random.normal(loc=dist1_loc,scale=dist1_scale,size=int(N*weight1))
+
+obs_dist2 = np.random.normal(loc=dist2_loc,scale=dist2_scale,size=int(N*weight2))
+
+obs_dist = np.concatenate([obs_dist1,obs_dist2],axis=0)
+fig = plt.figure(figsize=(15, 8))
+ax = fig.add_subplot(111)
+
+# Scatter plot of data samples and histogram
+
+ax.scatter(obs_dist, np.abs(np.random.randn(obs_dist.shape[0]))/100-0.05,
+            zorder=15, color='red', marker='+', alpha=0.5, label='Samples')
+
+X_plot = np.linspace(-3.5, 3.5, 1000)
+norm_linear = (0.25 * norm(-1, .5).pdf(X_plot) + 0.75 * norm(1, .5).pdf(X_plot))
+ax.fill(X_plot, norm_linear, fc='black', alpha=0.75, label='Normal Mixture')
 
 # Create linear combination of 2 normal distributed random variable
-norm_linear = (0.3 * norm(0, 1).pdf(X_plot) + 0.7 * norm(5, 1).pdf(X_plot))
-
-fig, ax = plt.subplots(figsize=(10,7))
-# Plot the real distribution
-ax.fill(X_plot, norm_linear, fc='black', alpha=0.2, label='Linear combination')
 # Use 3 different kernel to estimate
 for kernel in ['gaussian', 'tophat', 'epanechnikov']:
     # Initial an object to use kernel function to fit data, bandwidth will affect the result
-    kde = KernelDensity(kernel=kernel, bandwidth=0.5).fit(norm_data.reshape(-1, 1))
+    kde = KernelDensity(kernel=kernel, bandwidth=0.5).fit(obs_dist.reshape(-1, 1))
     # Evaluate the density model on the data
     log_dens = kde.score_samples(X_plot.reshape(-1, 1))
-    ax.plot(X_plot, np.exp(log_dens), '-', label="kernel = '{0}'".format(kernel))
+    ax.plot(X_plot, np.exp(log_dens), '-', label=str(kernel))
+
 
 # Add text on the plot, position argument can be arbitrary
-ax.set_xlabel("N={0} points".format(N))
-
-ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.075),
+#ax.set_xlabel("N={0} points".format(N))
+ax.text(-1.2, -0.16,'Kernels')
+ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1),
           fancybox=True, shadow=False, ncol=5,frameon=False)
 
 ax.spines['top'].set_visible(False)
 ax.spines['right'].set_visible(False)
-# Plot the random points, squeeze them into narrow space
-ax.plot(norm_data, -0.005 - 0.01 * np.random.random(norm_data.shape[0]), '+k')
 # Set x-axis y-axis limit to adjust the figure
-ax.set_xlim(-4, 9)
-ax.set_ylim(-0.03, 0.4)
-fig.savefig('kernel_estimation.png', dpi=500,transparent=True
+fig.savefig('kde.png', dpi=500,transparent=True
 	)
 plt.show()
-
