@@ -18,4 +18,4 @@ Keywords :
 - Black-Scholes
 - Implied Volatility
 
-Author : Junjie Hu, Yves Hilpisch
+Author : Junjie Hu, Yves Hilpisch, Justin Hellermann
