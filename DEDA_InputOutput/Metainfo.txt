@@ -1,4 +1,4 @@
-Name of Quantlet : DEDA_InputOutput
+Name of Quantlet : DEDA_input_output
 Published in : Digital Economy and Decision Analytics
 Description : Introduce importing packages, reading and writing files, using pandas to read and write structured data.
 Keywords : 
