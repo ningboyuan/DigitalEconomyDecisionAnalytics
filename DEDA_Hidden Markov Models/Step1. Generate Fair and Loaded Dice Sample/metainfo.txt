@@ -18,4 +18,6 @@ Output:
 - 'Sample_Hid.csv'
 - 'First 200 cases of dice sequence.png'
 
-Author: 'Jane Hsieh (Hsing-Chuan Hsieh)'
+Author: 
+- 'Jane Hsieh (Hsing-Chuan Hsieh)'
+- 'Wolfgang Karl Härdle'
