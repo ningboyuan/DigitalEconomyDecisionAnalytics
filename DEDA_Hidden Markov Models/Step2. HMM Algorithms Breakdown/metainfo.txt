@@ -17,4 +17,6 @@ Datafile:  'Sample_Obs.csv'
 
 Input: 'The datafile–"Sample_Obs.csv" is generated from codes in "Step1. Generate Fair and Loaded Dice Sample" folder'
 
-Author: 'Jane Hsieh (Hsing-Chuan Hsieh)'
+Author: 
+- 'Jane Hsieh (Hsing-Chuan Hsieh)'
+- 'Wolfgang Karl Härdle'
