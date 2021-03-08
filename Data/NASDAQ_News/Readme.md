@@ -1,18 +1,17 @@
 # NASDAQ News Database 2016
 
 NASDAQ News data is collected from NASDAQ News platform (https://www.nasdaq.com) that offers news related to Global Market, US Stock Market, US Fix-income Market and etc.
-This dataset can only be used on academic research purpose.
+This dataset sample can only be used for academic research purpose.
 
 # Download Link:
 
-https://drive.google.com/open?id=1YU6WgUffJj73q23tMB1ipUUzTzXSI6RJ
-
+https://drive.google.com/file/d/1eAw4_3y1VhBuiYZdxkqbc8dF89yhf-uM/view?usp=sharing
 
 ## Format: 
 
-Json format, reading example in Python is provided as following:
+Json format, reading example in Python is provided as follows:
 
-Note: Please unzip the json.zip file before reading it
+Note: Uunzip the json.zip file before reading
 
 ```python
 import json
@@ -29,17 +28,17 @@ with open(path + 'NASDAQ_News_2016.json', 'r') as json_file:
 
 ## Features:
 
-article_link: The original link for the article
+article_link: Original link for the article
 
-article_title: The title of the article
+article_title: Title of the article
 
-article_time: The posted time of the article, string format, UTC -5 time (New York Time)
+article_time: Posted time of the article, string format, UTC -5 time (New York Time)
 
-author_name: Name of the author(s)
+author_name: Name(s) of the author(s)
 
 author_link: Link to the author(s)'s homepage
 
-article_content: Main body content of the article
+article_content: Main content of the article
 
 appears_in: Tags for article's, e.g Investing, Stocks, Options and so on
 
@@ -48,5 +47,5 @@ symbols: Tickers that are related to the article
 
 ## Person to contact regarding the dataset
 
-hujunjie@hu-berlin.de
+junjie.hu@hu-berlin.de
 
