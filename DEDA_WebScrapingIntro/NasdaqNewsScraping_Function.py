@@ -21,6 +21,12 @@ import os
 import pandas as pd
 import pickle
 
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36',
+    "Upgrade-Insecure-Requests": "1", "DNT": "1",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.5", "Accept-Encoding": "gzip, deflate"}
+# Header is used to deceive the webpage host server that we are visiting the webpage via a browser
 
 def nasdaq_news_scraping(page=1, refresh=False):
     # Argument page equals 1 by default
@@ -28,7 +34,7 @@ def nasdaq_news_scraping(page=1, refresh=False):
 
     if (not os.path.exists(direct + '/temp/' + str(page) + '.pkl')) or (refresh is True):
         # connect to the website if the webpage source code file is not exist of we need to refresh it
-        url_request = requests.get(nasdaq_url)
+        url_request = requests.get(nasdaq_url, headers=headers)
         # save the request object after scraping
         with open(direct + '/temp/' + str(page) + '.pkl', 'wb') as url_file:
             pickle.dump(url_request, url_file)
@@ -37,7 +43,7 @@ def nasdaq_news_scraping(page=1, refresh=False):
         with open(direct + '/temp/' + str(page) + '.pkl', 'rb') as url_file:
             url_request = pickle.load(url_file)
     url_content = url_request.content
-    parsed_content = soup(url_content)
+    parsed_content = soup(url_content, "html.parser")
     containers = parsed_content.find_all('div', {'data-type': 'article'})
     page_info = list()
 

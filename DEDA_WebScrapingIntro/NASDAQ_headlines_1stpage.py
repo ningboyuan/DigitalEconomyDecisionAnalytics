@@ -28,9 +28,20 @@ direct = os.getcwd() + '/DEDA_WebScrapingIntro/'
 
 refresh = True
 
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.76 Safari/537.36',
+    "Upgrade-Insecure-Requests": "1", "DNT": "1",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.5", "Accept-Encoding": "gzip, deflate"}
+# Header is used to deceive the webpage host server that we are visiting the webpage via a browser
+
 if (not os.path.exists(direct + 'temp/' + '0.pkl')) or (refresh is True):
     # connect to the website if the webpage source code file is not exist or we need to refresh it
-    url_request = requests.get(nasdaq_url)
+    url_request = requests.get(nasdaq_url, headers=headers)
+    status_code = url_request.status_code
+
+    if status_code != 200:
+        raise ConnectionRefusedError("Unable to connect to the website")
     # save the request object after scraping
     with open(direct + 'temp/' + '0.pkl', 'wb') as url_file:
         pickle.dump(url_request, url_file)
@@ -39,11 +50,9 @@ else:
     with open(direct + 'temp/' + '0.pkl', 'rb') as url_file:
         url_request = pickle.load(url_file)
 
-url_request = requests.get(nasdaq_url)
 url_content = url_request.content
-
 # Using BeautifulSoup to parse webpage source code
-parsed_content = soup(url_content)
+parsed_content = soup(url_content, "html.parser")
 
 # Using .find_all() method to search tag name and attribute
 containers = parsed_content.find_all('div', {'data-type': 'article'})

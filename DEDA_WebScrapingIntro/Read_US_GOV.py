@@ -16,3 +16,4 @@ Count = [item['Count'] for item in content]
 
 Info = zip(Year, Count)
 PassportData = pd.DataFrame(list(Info), columns=['Year', 'Count'])
+print(PassportData)
