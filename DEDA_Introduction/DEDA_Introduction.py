@@ -3,7 +3,7 @@ Python Basic Syntax and Data Structure Introduction
 
 Author: Junjie Hu
 Editor: Lucas Uman and Isabell Fetzer
-Created time:
+
 """
 
 """
