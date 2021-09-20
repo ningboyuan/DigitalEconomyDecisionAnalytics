@@ -196,7 +196,7 @@ course.update({'lecturers': ['Chen', 'Härdle']})
 
 
 """
-if
+if/elif/else
 """
 """
 Control Flow Tools: if/elif/else. 
@@ -213,7 +213,7 @@ else:
     print('Positive Value')
 
 """
-if
+if/elif/else
 """
 """
 Control Flow Tools: if/elif/else
