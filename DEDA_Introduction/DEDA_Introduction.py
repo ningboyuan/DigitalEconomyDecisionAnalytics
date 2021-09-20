@@ -153,7 +153,7 @@ print(f'{list_sliced}.')  # Welcome to P.
 # Try changing the indices to negative.
 
 sentence_big = list_as_sentence.upper()
-print(sentence_big)  # Welcome to Python
+print(sentence_big)  # WELCOME TO PYTHON
 
 """
 operations
