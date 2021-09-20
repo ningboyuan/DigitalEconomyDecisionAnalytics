@@ -253,7 +253,7 @@ for i in 'DEDA':
 
 d = dict(a=1, b=2)
 for k, v in d.items():
-    print('{} has value {}'.format(k, v))
+    print('\n{} has value {}'.format(k, v))
 # a has value 1
 # b has value 2
 
