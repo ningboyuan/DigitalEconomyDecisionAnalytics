@@ -1,14 +1,13 @@
 Name of Quantlet : DEDA_Introduction
 Published in : Digital Economy and Decision Analytics
-Description : UNIT 1 of DEDA: Introduce basic syntax, like numeric and string, and basic data structure, like list, tuple, set and dict in Python
+Description : UNIT 1 of DEDA. Introduce basic syntax, such as numeric and string, and basic data structure, like list, tuple, set and dict in Python
 Keywords : 
 - Python
 - Teaching
 - Data Science
 - Economy
 - Decision
-Author : Junjie Hu
-Editor: Lucas Uman and Isabell Fetzer
+Author : Junjie Hu, Isabell Fetzer, Lucas Umann
 
 
 
