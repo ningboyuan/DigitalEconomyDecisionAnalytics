@@ -341,7 +341,7 @@ square_iterabel_short(x)  # [1, 4, 9, 16, 25]
 
 
 """
-WWiggling Elephant Trunk
+Wiggling Elephant Trunk:
 
 vonNeuman_elephant.py
     "With four parameters I can fit an elephant,
@@ -389,6 +389,7 @@ from numpy import append, cos, linspace, pi, sin, zeros
 import matplotlib.pyplot as plt
 from IPython.display import HTML
 
+# PLEASE NOTE IN SPYDER YOU SHOULD DISABLE THE ACTIVE SUPPORT in PREFs
 # elephant parameters
 parameters = [50 - 30j, 18 + 8j, 12 - 10j, -14 - 60j, 20 + 20j]
 
@@ -396,17 +397,18 @@ parameters = [50 - 30j, 18 + 8j, 12 - 10j, -14 - 60j, 20 + 20j]
 # parameters = [30 - 10j, 20 + 20j, 40 + 10j, 20 - 50j, -40 + 10j]
 
 # philipp's flying swan 
-# parameters = [1 - 2j, 9 + 9j, 1 + 2j, 9 + 9j, 5 + 5j]
+# parameters = [1 - 2j, 9 + 9j, 1 - 2j, 9 + 9j, 0 + 0j]
 
 # kathrin's hungry animal 
 # parameters = [50 - 50j, 30 + 10j, 5 - 2j, -5 - 6j, 20 + 20j]
 
 # anna’s happy hippo
-# parameters = [50 - 15j, 5 + 2j, -10 - 10j, -14 - 60j, -15 + 30j]
+# parameters = [50 - 15j, 5 + 2j, -10 - 10j, -14 - 60j, 5 + 30j]
 
 # fabio’s bird with right wing paralysis
-# parameters = [50 - 15j, 5 + 2j, -1 - 5j, -14 - 60j, 20 - 41j]
+# parameters = [50 - 15j, 5 + 2j, -1 - 5j, -14 - 60j, 18 - 40j]
 
+# for pea shooter see code below 
 
 def fourier(t, C):
     f = zeros(t.shape)
@@ -432,15 +434,14 @@ def elephant(t, p):
 
     Cx[5] = p[3].real
 
-    x = append(fourier(t, Cy), [p[4].imag])
+    x = append(fourier(t, Cy), [p[4].real])
     y = -append(fourier(t, Cx), [-p[4].imag])
 
     return x, y
 
 
 def init_plot():
-    # draw the body of the elephant
-    # create trunk
+    # draw the body of the elephant & create trunk
     x, y = elephant(linspace(2.9 * pi, 0.4 + 3.3 * pi, 1000), parameters)
     for ii in range(len(y) - 1):
         y[ii] -= sin(((x[ii] - x[0]) * pi / len(y))) * sin(float(0)) * parameters[4].real
@@ -473,13 +474,22 @@ ani = animation.FuncAnimation(fig=fig,
                               interval=100,
                               blit=False,
                               repeat=True)
-#plt.show()
+
 ani
 HTML(ani.to_html5_video())
 
+""" 
+# Uncomment if you would like to save video externally
+Writer = animation.writers['ffmpeg']
+metadata = dict(title='Elephant Trunk Wiggling', artist='Jenny Bethäuser')
+writer = Writer(fps=30, metadata=metadata, bitrate=1800)
+ani.save(filename='bulldog_trunk_wiggle.mp4', writer=writer)
+plt.show()
+"""
+
 
 """
-Wentian’s pea shooter
+Wentian’s pea shooter:
 
 vonNeuman_elephant.py
     "With four parameters I can fit an elephant,
@@ -519,22 +529,21 @@ Bailey, D., Borwein, J., Lopez de Prado, M., & Zhu, Q. (2014).
 Pseudo-mathematics and financial charlatanism: The effects of backtest overfitting on out-of-sample performance.
 """
 
-# peashooter
+# for peashooter: 
 
-import matplotlib
-
+# import matplotlib
+# matplotlib.use('TKAgg')
 """
 you might want to use the following in terminal if the graphviz does not work:
 conda install -c conda-forge ffmpeg
 All should be fine though if you use jupyter notebook
 """
 
-matplotlib.use('TKAgg')
 from matplotlib import animation
 from numpy import append, cos, linspace, pi, sin, zeros
 import matplotlib.pyplot as plt
 
-# elephant parameters, last one is the eye
+
 parameters = [50 - 50j, 18 + 80j, 12 - 10j, -14 - 60j, 20 + 20j]
 
 
@@ -545,7 +554,7 @@ def fourier(t, C):
     return f
 
 
-def elephant(t, p):
+def peashooter(t, p):
     npar = 6
 
     Cx = zeros((npar,), dtype='complex')
@@ -562,16 +571,14 @@ def elephant(t, p):
 
     Cx[5] = p[3].real
 
-    x = append(fourier(t, Cy), [p[4].imag])
+    x = append(fourier(t, Cy), [p[4].real])
     y = -append(fourier(t, Cx), [-p[4].imag])
 
     return x, y
 
 
 def init_plot():
-    # draw the body of the elephant
-    # create trunk
-    x, y = elephant(linspace(2 * pi + 0.9 * pi, 0.4 + 3.3 * pi, 1000), parameters)
+    x, y = peashooter(linspace(2 * pi + 0.9 * pi, 0.4 + 3.3 * pi, 1000), parameters)
     for ii in range(len(y) - 1):
         y[ii] -= sin(((x[ii] - x[0]) * pi / len(y))) * sin(float(0)) * parameters[4].real
     trunk.set_data(x, y)
@@ -579,8 +586,7 @@ def init_plot():
 
 
 def move_trunk(i):
-    x, y = elephant(linspace(2 * pi + 0.8 * pi, 0.4 + 3.7 * pi, 1000), parameters)
-    # move trunk to new position (but don't move eye stored at end or array)
+    x, y = peashooter(linspace(2 * pi + 0.8 * pi, 0.4 + 3.7 * pi, 1000), parameters)
     for ii in range(len(y) - 1):
         y[ii] -= sin(((x[ii] - x[0]) * pi / len(y))) * sin(float(i)) * parameters[4].real
     trunk.set_data(x, y)
@@ -588,13 +594,12 @@ def move_trunk(i):
 
 
 fig, ax = plt.subplots()
-# initial the elephant body
-x, y = elephant(t=linspace(0.4 + 1.7 * pi, 2 * pi + 0.8 * pi, 1000), p=parameters)
+x, y = peashooter(t=linspace(0.4 + 1.7 * pi, 2 * pi + 0.8 * pi, 1000), p=parameters)
 plt.plot(x, y, 'b.')
 plt.xlim([-175, 190])
 plt.ylim([-70, 100])
 plt.axis('off')
-trunk, = ax.plot([], [], 'b.')  # initialize trunk
+trunk, = ax.plot([], [], 'b.') 
 
 ani = animation.FuncAnimation(fig=fig,
                               func=move_trunk,
@@ -603,12 +608,12 @@ ani = animation.FuncAnimation(fig=fig,
                               interval=500,
                               blit=False,
                               repeat=True)
-plt.show()
 
 
+# Video will be externally saved
 Writer = animation.writers['ffmpeg']
-
-metadata = dict(title='Elephant Trunk Wiggling', artist='Junjie Hu')
+metadata = dict(title='Wentians pea shooter')
 writer = Writer(fps=30, metadata=metadata, bitrate=1800)
-ani.save(filename='elephant_trunk_wiggle.mp4', writer=writer)
+ani.save(filename='peashooter.mp4', writer=writer)
+# plt.show()
 
