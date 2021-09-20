@@ -75,7 +75,7 @@ Python provides a straight way for numerical operations. Try comparison operatio
 a = 5
 
 a == 5  # checks if a equals 5; output will be True
-a != 7  # checks if a is not equal to 7; output will be False
+a != 7  # checks if a is not equal to 7; output will be True
 
 a <= 7  # checks if a is smaller or equal 7; output will be True
 a > 5  # False
