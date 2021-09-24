@@ -7,7 +7,7 @@ Keywords :
 - Data Science
 - Economy
 - Decision
-Author : Junjie Hu, Isabell Fetzer, Lucas Umann
+Author : Junjie Hu and Isabell Fetzer and Lucas Umann
 
 
 
