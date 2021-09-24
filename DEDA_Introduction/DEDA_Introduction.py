@@ -175,7 +175,7 @@ help(str)
 dictionary
 """
 """
-Dictionaries are used to store data values in key:value pairs. A dictionary is a collection which is ordered*, changeable and does not allow duplicates. 
+Dictionaries are used to store data values in key:value pairs. A dictionary is a collection which is unordered, changeable and does not allow duplicates. 
 """
 course = dict(name='DEDA', unit=0)  # {'name': 'DEDA', 'unit': 0}
 course = {'name': 'DEDA', 'unit': 0}  # alternative
