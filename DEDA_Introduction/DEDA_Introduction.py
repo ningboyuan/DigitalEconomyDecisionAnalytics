@@ -192,7 +192,7 @@ course.values()  # ['DEDA', 1]
 
 # adding values
 course.update({'lecturers': ['Chen', 'Härdle']})
-# {'lecturers': ['Chen', 'Härdle'], 'name': 'DEDA', 'unit': 1}
+# {'name': 'DEDA', 'unit': 1, 'lecturers': ['Chen', 'Härdle']}
 
 
 """
