@@ -1,6 +1,6 @@
 Name of Quantlet : DEDA_ConditionIteration
 Published in : Digital Economy and Decision Analytics
-Description : Unit2 of DEDA. Introduce the conditional execution and how to iterate by using #for# and #while# in a pythonic way.
+Description : UNIT 2 of DEDA. Introduce the conditional execution and how to iterate by using #for# and #while# in a pythonic way.
 Keywords : 
 - Python
 - Teaching
