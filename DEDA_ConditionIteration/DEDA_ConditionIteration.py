@@ -333,7 +333,7 @@ apple_stock_2021.index.duplicated()
 """
 Input and Output
 """
-# operation
+# operations
 # way1, potential risk
 way1 = apple_stock_2021.drop_duplicates(keep='first', subset=['low', 'high', 'open', 'close', 'volume'])
 # way2, drop by index, row operation. ~, take inverse
