@@ -210,7 +210,7 @@ Iteration
 """
 Special Loops
 """
-our_class = ['Digital', 'Economy', 'and', 'Decision', ‘Analytics']
+our_class = ['Digital', 'Economy', 'and', 'Decision', 'Analytics']
 # a loop embed in another loop
 for word in our_class:
     if word == 'in':
