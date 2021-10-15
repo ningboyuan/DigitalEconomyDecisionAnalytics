@@ -8,7 +8,7 @@ Keywords :
 - looping
 - for
 - while
-Author : Junjie Hu and Isabell Fetzer 
+Author : Isabell Fetzer and Junjie Hu
 
 
 
