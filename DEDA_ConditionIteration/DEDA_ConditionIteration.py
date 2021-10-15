@@ -162,7 +162,7 @@ for item in seq1:
     if item: # equals: if bool_smb == TRUE
         print(item, ": This is True")
     elif not item:
-        print(item, ": This is False“)
+        print(item, ": This is False")
               
               
 """
