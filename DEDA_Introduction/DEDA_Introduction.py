@@ -4,8 +4,8 @@ Python Basic Syntax and Data Structure Introduction
 
 Author: Junjie Hu
 Editor: Isabell Fetzer and Lucas Umann
-
 """
+
 
 """
 numeric
