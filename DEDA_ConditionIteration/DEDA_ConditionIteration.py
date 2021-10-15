@@ -2,7 +2,7 @@
 DEDA Unit 2
 Introducing the Condition and Iteration in Python
 
-Author: Isabell Fetzer and Junjie Hu
+Authors: Isabell Fetzer and Junjie Hu
 """
 
 
