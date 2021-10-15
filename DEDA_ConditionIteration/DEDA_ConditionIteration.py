@@ -261,7 +261,7 @@ finally:
     shakespeare.close()
 # simplified: 
 try:
-    shakespeare = open(‘shakespeare.txt') # 'r' and 'utf-8' are set by default
+    shakespeare = open('shakespeare.txt') # 'r' and 'utf-8' are set by default
     for string in shakespeare: # no need to call readlines() explicitly, it’s the default
         print(string.strip())
 finally:
@@ -278,8 +278,9 @@ with open('shakespeare.txt') as shakespeare:
     for string in shakespeare:
         print(string.strip())
 # shakespeare.close() will be called automatically and is redundant    
-with open('shakespeare.txt', 'w' ) as shakespeare:
-    shakespeare.write('Some addition to line 1')
+with open('shakespeare.txt', 'a' ) as shakespeare:
+    shakespeare.write('BY WILLIAM SHAKESPEARE')
+# BY WILLIAM SHAKESPEARE will be added to last line of the .txt file 
 
                        
 """
