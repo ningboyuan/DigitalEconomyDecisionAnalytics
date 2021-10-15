@@ -111,11 +111,11 @@ set and frozenset
 The common set of arithmetic operators are available as methods for sets. 
 """
 immutable = ordered_immutable.union(unordered_immutable) # a | b
-# {'string', 'tuple', 'dictionary', 'frozenset'}
+# {'frozenset', 'dictionary', 'string', 'tuple'}
 inter = immutable.intersection(ordered) # a & b
 # {'string', 'tuple'}
 diff1 = immutable.difference(ordered)  # a - b
-# {'dictionary', 'frozenset'}
+# {'frozenset', 'dictionary'}
 diff2 = ordered.difference(immutable)  # b - a
 # {'list'}
 sym = ordered.symmetric_difference(immutable)  # a ^ b 
