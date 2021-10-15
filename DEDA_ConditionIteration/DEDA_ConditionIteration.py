@@ -60,7 +60,7 @@ index_num = numbers.index(11)   # 1
 numbers.reverse()  # [0, 95, 2, 11, 4]
 numbers.sort()  # [0, 2, 4, 11, 95]
 numbers.sort(reverse=True)  # [95, 11, 4, 2, 0]
-sorted_number = sorted(numbers)  # [0, 2, 4, 11, 95]
+sorted_number = sorted(numbers)  # [95, 11, 4, 2, 0]
 # formatting numbers of list to 2 digits
 numbers_db = [format(num, '02d') for num in numbers]
 # ['95', '11', '04', '02', '00']
