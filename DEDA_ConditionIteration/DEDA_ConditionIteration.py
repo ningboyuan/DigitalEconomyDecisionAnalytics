@@ -341,5 +341,5 @@ way2 = apple_stock_2021[~ (apple_stock_2021.index.duplicated())]
 # a simple build-in plot function of pandas
 apple_stock_2021['open'].plot() 
 # Save the new data as json format
-apple_stock_2021.to_json(‘AAPL_2021.json')
+apple_stock_2021.to_json('AAPL_2021.json')
                          
