@@ -76,7 +76,7 @@ t = () # empty tuple
 t1, t2, t3 = 'Guido van Rossum', 65, 'Dutch' # tuple is implicitly created
 # tuple vs. list 
 creator_tuple = ('Guido van Rossum', 65, 'Dutch')
-creator_list = ['Guido van Rossum', 65, ‘Dutch']
+creator_list = ['Guido van Rossum', 65, 'Dutch']
 # accessing tuples works like accessing lists, however … 
 # … tuple do not support item assignment while lists do
 creator_tuple[0] = 'G.v. Rossum' # TypeError! Python stops. 
