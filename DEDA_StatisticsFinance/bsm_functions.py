@@ -1,12 +1,3 @@
-"""
-Copyright: This code is from "Python for finance, analyze big financial data", Yves Hilpisch
-It is a highly recommended book for Python novices
-"""
-
-# Monte Carlo valuation of European call option
-# in Black-Scholes-Merton model
-# bsm_mcs_euro.py
-#
 import numpy as np
 
 # Parameter Values
@@ -41,7 +32,6 @@ print("Value of the European Call Option %5.3f" % C0)
 def bsm_call_value(S0, K, T, r, sigma):
     ''' Valuation of European call option in BSM model.
     Analytical formula.
-
     Parameters
     ==========
     S0 : float
@@ -54,7 +44,6 @@ def bsm_call_value(S0, K, T, r, sigma):
         constant risk-free short rate
     sigma : float
         volatility factor in diffusion term
-
     Returns
     =======
     value : float
@@ -78,7 +67,6 @@ def bsm_call_value(S0, K, T, r, sigma):
 
 def bsm_vega(S0, K, T, r, sigma):
     ''' Vega of European option in BSM model.
-
     Parameters
     ==========
     S0 : float
@@ -91,7 +79,6 @@ def bsm_vega(S0, K, T, r, sigma):
         constant risk-free short rate
     sigma : float
         volatility factor in diffusion term
-
     Returns
     =======
     vega : float
@@ -112,7 +99,6 @@ def bsm_vega(S0, K, T, r, sigma):
 
 def bsm_call_imp_vol(S0, K, T, r, C0, sigma_est, it=100):
     ''' Implied volatility of European call option in BSM model.
-
     Parameters
     ==========
     S0 : float
@@ -127,7 +113,6 @@ def bsm_call_imp_vol(S0, K, T, r, C0, sigma_est, it=100):
         estimate of impl. volatility
     it : integer
         number of iterations
-
     Returns
     =======
     simga_est : float
